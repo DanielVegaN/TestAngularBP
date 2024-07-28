@@ -1,0 +1,25 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-input input {
+  border-radius: 5px;
+  border: 1px solid #cfcfd1;
+  width: 300px;
+  padding: 10px;
+}
+
+.form-input input.invalid{
+  border-color: rgb(245, 108, 108);
+}
+
+.form-input .error{
+  color: rgb(245, 108, 108);
+}
+
+.form-input label{
+  font-weight: 500;
+  color: black;
+}

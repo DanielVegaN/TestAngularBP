@@ -1,0 +1,47 @@
+<form
+      class="form"
+      autocomplete="off"
+      [formGroup]="productForm"
+      (ngSubmit)="onSubmitForm()"
+    >
+      <div class="form-control">
+        <shared-input-text
+          [formControl]="$any(productForm.controls['id'])"
+          [label]="'Id'"
+        ></shared-input-text>
+        <shared-input-text
+          [formControl]="$any(productForm.controls['name'])"
+          [label]="'Nombre'"
+        ></shared-input-text>
+      </div>
+      <div class="form-control">
+        <shared-input-text
+          [formControl]="$any(productForm.controls['description'])"
+          [label]="'Descripción'"
+        ></shared-input-text>
+        <shared-input-text
+          [formControl]="$any(productForm.controls['logo'])"
+          [label]="'Logo'"
+        ></shared-input-text>
+      </div>
+      <div class="form-control">
+        <shared-input-text
+          [formControl]="$any(productForm.controls['dateRelease'])"
+          [label]="'Fecha de liberación'"
+          [type]="'date'"
+        ></shared-input-text>
+        <shared-input-text
+          [formControl]="$any(productForm.controls['dateRevision'])"
+          [label]="'Fecha Revisión'"
+          [type]="'date'"
+        ></shared-input-text>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-default" type="button" (click)="productForm.reset()">
+          Reiniciar
+        </button>
+        <button class="btn btn-primary" type="submit" [disabled]="!productForm.valid">
+          Enviar
+        </button>
+      </div>
+    </form>

@@ -1,0 +1,15 @@
+<div class="container-content">
+  <div class="content content-white">
+    <h1>Formulario de Registro</h1>
+    <hr />
+    <ng-container *ngIf="productUpdate$ | async as productUpdate; else loading">
+      <shared-form
+        [product]="productUpdate"
+        (onSubmit)="onEditProduct($event)"
+      ></shared-form>
+    </ng-container>
+    <ng-template #loading>
+      <shared-skeleton-form></shared-skeleton-form>
+    </ng-template>
+  </div>
+</div>

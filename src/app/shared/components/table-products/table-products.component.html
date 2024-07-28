@@ -1,0 +1,62 @@
+<shared-skeleton-table *ngIf="isLoading"></shared-skeleton-table>
+<div *ngIf="!isLoading" class="container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre del Producto</th>
+        <th>Descripción</th>
+        <th>Fecha de liberación</th>
+        <th>Fecha de reestructuración</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template #resultProducts>
+        <tr *ngFor="let product of paginatedProducts">
+          <td><shared-logo [logoSrc]="product.logo"></shared-logo></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.date_release }}</td>
+          <td>{{ product.date_revision }}</td>
+          <td class="pointer relative" (click)="toggleDropdown(product.id)">
+            <img
+              [src]="'./assets/dots.png'"
+              height="15"
+              alt="options"
+            />
+            <div class="dropdown-menu" *ngIf="activeDropdown === product.id">
+              <a (click)="editProduct(product)">Editar</a>
+              <a (click)="deleteProduct(product)">Eliminar</a>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <tr *ngIf="products.length === 0; else resultProducts">
+        <td colspan="6">No existen registros</td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="products.length > 0">
+      <tr>
+        <td id="list-result" colspan="3">
+          {{ products.length }} Resultado{{ products.length > 1 ? "s" : "" }}
+        </td>
+        <td id="select-pagination" colspan="3" style="text-align: right">
+          <select (change)="onItemsPerPageChange($event)">
+            <option *ngFor="let option of [5, 10, 20]" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+
+<shared-delete-modal
+  [isVisible]="isDeleteModalVisible"
+  [product]="selectedProduct"
+  (confirm)="onDeleteConfirmed()"
+  (cancel)="onDeleteCanceled()"
+></shared-delete-modal>

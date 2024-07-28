@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="searchBox">
+    <financial-products-search-box
+      (productsSearched)="searchProduct($event)"
+    ></financial-products-search-box>
+    <button type="button" class="btn" routerLink="/financial/add-product">
+      Agregar
+    </button>
+  </div>
+  <div class="table">
+    <shared-table-products
+      [products]="products"
+      [isLoading]="isLoading"
+      (onDelete)="deleteProduct($event)"
+    ></shared-table-products>
+  </div>
+</div>

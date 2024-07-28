@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-content {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: clamp(50vw, 50vw, 90vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

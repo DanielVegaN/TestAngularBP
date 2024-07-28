@@ -1,0 +1,46 @@
+.skeleton-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.skeleton-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.skeleton-field {
+  width: 48%;
+  height: 30px;
+  background-color: #ddd;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.skeleton-button {
+  width: 100px;
+  height: 40px;
+  background-color: #ddd;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

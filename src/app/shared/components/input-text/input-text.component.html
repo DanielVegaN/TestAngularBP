@@ -1,0 +1,31 @@
+<div class="form-input">
+  <label>{{ label }}</label>
+  <input
+    [class.is-invalid]="control.touched && control.invalid && !control.disabled"
+    [class.is-valid]="control.touched && control.valid && !control.disabled"
+    [type]="type"
+    [formControl]="control"
+    [attr.disabled]="isDisabled ? '' : null"
+    class="form-control"
+    placeholder="{{ label }}"
+  />
+  <ng-container *ngIf="!control.disabled">
+    <div *ngIf="control?.hasError('required')" class="error">
+      Por favor ingrese un {{ label }}
+    </div>
+    <div *ngIf="control?.hasError('minlength')" class="error">
+      {{ label }} debe ser por lo menos de
+      {{control.errors?.['minlength'].requiredLength}} caracteres
+    </div>
+    <div *ngIf="control?.hasError('maxlength')" class="error">
+      {{ label }} debe ser hasta
+      {{control.errors?.['maxlength'].requiredLength}} caracteres
+    </div>
+    <div *ngIf="control?.hasError('notExactlyOneYear')" class="error">
+      La fecha de revisión debe ser exactamente un año a la fecha de liberación
+    </div>
+    <div *ngIf="control?.hasError('idExists')" class="error">
+      El id ya existe
+    </div>
+  </ng-container>
+</div>

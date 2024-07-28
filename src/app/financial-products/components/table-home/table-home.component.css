@@ -1,0 +1,20 @@
+.table{
+  margin-top: 1rem;
+}
+.searchBox{
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button{
+  background-color: #f5df66;
+  color: #3b4d7a;
+  border: 0;
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
